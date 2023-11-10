@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="button">
+    <div class="">
+        <h5 style="text-align: center;color: rgb(160, 158, 156);margin-bottom:20px;">Calculator</h5>
+    </div>
+    <input type="text" id="calc" style="margin-left: 22px;height: 40px;background-color: beige;width: 200px;">
+    <br>
+    <div class="name">
+        
+    <button onclick="clearDisplay('c')" >Ac</button>
+    <button onclick="deleteDisplay('Del')">Del</button>
+    <button onclick="appendToDisplay('^')" >^</button>
+    <button onclick="appendToDisplay('/')">/</button>
+    <br>
+    <button onclick="appendToDisplay('7')" >7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')" >9</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button onclick="appendToDisplay('4')" >4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')" >6</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button onclick="appendToDisplay('1')" >1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')" >3</button>
+    <button onclick="appendToDisplay('*')">x</button><br>
+    <button onclick="appendToDisplay('0')" style="width: 106px; border-radius: 40px;">0</button>
+    <button onclick="appendToDisplay('.')" >.</button>
+    <button onclick="calculateResult('=')">=</button>
+</div>
+</div>
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("calc").value+=value
+            
+        }
+        function clearDisplay() {
+            document.getElementById("calc").value="";
+            
+        }
+        function deleteDisplay() {
+            let value1=document.getElementById("calc").value;
+            document.getElementById("calc").value=value1.slice(0,-1)
+            
+        }
+        function calculateResult() {
+            try {
+                const result=eval(document.getElementById("calc").value);
+            document.getElementById("calc").value=result;
+                
+            } catch (error) {
+                document.getElementById("calc").value="error";
+                
+            }
+            
+        }
+    </script>
+</body>
+</html>
+<style>
+    .button{
+        background-color: black;
+        margin: auto;
+        width: 250px;
+        border:  1px solid;
+        /* padding: 30px; */
+    }
+    button{
+        margin-top: 10px;
+       
+        width: 50px;
+        height: 45px;
+       border-radius: 40%;
+       background-color: rgb(197, 196, 196);
+       padding:10px;
+       
+
+    
+    }
+    .name{
+        margin-left: 25px;
+    }
+</style>
